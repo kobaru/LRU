@@ -4,8 +4,8 @@
 
 # TODO
 
-- [ ] README を作成する
-- [ ] LRUTest class を実装する
+- [x] README を作成する
+- [x] LRUTest class を実装する
 - [ ] LRUTest class でMapを扱えるようにする
 - [ ] lru.get("a") をプリントしたときに "dataA" を返す
 - [ ] lru.get("b") をプリントしたときに "dataB" を返す
