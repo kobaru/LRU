@@ -7,7 +7,7 @@
 - [x] README を作成する
 - [x] LRUTest class を実装する
 - [x] LRUTest class でMapを扱えるようにする
-- [ ] lru.get("a") をプリントしたときに "dataA" を返す
+- [x] lru.get("a") をプリントしたときに "dataA" を返す
 - [ ] lru.get("b") をプリントしたときに "dataB" を返す
 - [ ] lru.put("c", "dataC"); を行ったときに はじめに追加された "dataA" を削除する
 - [ ] lru.get("a") をプリントした際に null と表示されるか確認する
