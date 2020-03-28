@@ -9,5 +9,9 @@ public class LRUTest {
     @Test
     public void Mapを使えるようにする() {
         Map<String, String> lru = new LRU<>();
+
+        lru.put("a", "dataA");
+
+        assertEquals("dataA", lru.get("a"));
     }
 }
