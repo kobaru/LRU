@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
+import org.junit.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -7,13 +8,47 @@ import java.util.Map;
 public class LRUTest {
 
     @Test
-    public void Mapを使えるようにする() {
-        Map<String, String> lru = new LRU<>();
+    public void dataAを表示() throws Exception {
+        Map<String, String> lru = new LRU<>(2);
+
+        lru.put("a", "dataA");
+
+        assertEquals("dataA", lru.get("a"));
+
+    }
+
+    @Test
+    public void dataBを表示() throws Exception {
+        Map<String, String> lru = new LRU<>(2);
 
         lru.put("a", "dataA");
         lru.put("b", "dataB");
 
-        assertEquals("dataA", lru.get("a"));
         assertEquals("dataB", lru.get("b"));
+
+    }
+
+    @Test
+    public void dataCを表示() throws Exception {
+        Map<String, String> lru = new LRU<>(2);
+
+        lru.put("a", "dataA");
+        lru.put("b", "dataB");
+        lru.put("c", "dataC");
+
+        assertEquals("dataC", lru.get("c"));
+
+    }
+
+    @Test
+    public void dataAがnullになっているか() throws Exception {
+        Map<String, String> lru = new LRU<>(2);
+
+        lru.put("a", "dataA");
+        lru.put("b", "dataB");
+        lru.put("c", "dataC");
+
+        assertEquals(null, lru.get("a"));
+
     }
 }
