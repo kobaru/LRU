@@ -11,7 +11,9 @@ public class LRUTest {
         Map<String, String> lru = new LRU<>();
 
         lru.put("a", "dataA");
+        lru.put("b", "dataB");
 
         assertEquals("dataA", lru.get("a"));
+        assertEquals("dataB", lru.get("b"));
     }
 }
