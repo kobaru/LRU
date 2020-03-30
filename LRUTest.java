@@ -8,74 +8,74 @@ import java.util.Map;
 public class LRUTest {
 
     @Test
-    public void dataAを表示() throws Exception {
+    public void dataAを表示() throws Exception { // 最初のテスト
         Map<String, String> lru = new LRU<>(2);
 
-        lru.put("a", "dataA");
+        lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
 
-        assertEquals("dataA", lru.get("a"));
+        assertEquals("dataA", lru.get("a")); // key:"a"にアクセスした場合value:"dataA"を返すか確認
 
     }
 
     @Test
     public void dataBを表示() throws Exception {
-        Map<String, String> lru = new LRU<>(2);
+        Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
-        lru.put("a", "dataA");
-        lru.put("b", "dataB");
+        lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
+        lru.put("b", "dataB"); // (key:"b", value:"dataB")を挿入
 
-        assertEquals("dataB", lru.get("b"));
+        assertEquals("dataB", lru.get("b")); // key:"b"にアクセスした場合value:"dataB"を返すか確認
 
     }
 
     @Test
     public void dataCを表示() throws Exception {
-        Map<String, String> lru = new LRU<>(2);
+        Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
-        lru.put("a", "dataA");
-        lru.put("b", "dataB");
-        lru.put("c", "dataC");
+        lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
+        lru.put("b", "dataB"); // (key:"b", value:"dataB")を挿入
+        lru.put("c", "dataC"); // (key:"c", value:"dataC")を挿入
 
-        assertEquals("dataC", lru.get("c"));
+        assertEquals("dataC", lru.get("c")); // key:"c"にアクセスした場合value:"dataC"を返すか確認
 
     }
 
     @Test
     public void dataAがnullになっているか() throws Exception {
-        Map<String, String> lru = new LRU<>(2);
+        Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
-        lru.put("a", "dataA");
-        lru.put("b", "dataB");
-        lru.put("c", "dataC");
+        lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
+        lru.put("b", "dataB"); // (key:"b", value:"dataB")を挿入
+        lru.put("c", "dataC"); // (key:"c", value:"dataC")を挿入 - この時(key:"a", value:"dataA")はアクセスされていないため消えているはず
 
-        assertEquals(null, lru.get("a"));
-
-    }
-
-    @Test
-    public void dataAとdataBを追加したときにaにアクセスするとdataAを返す() throws Exception {
-        Map<String, String> lru = new LRU<>(2);
-
-        lru.put("a", "dataA");
-        lru.put("b", "dataB");
-
-        assertEquals("dataA", lru.get("a"));
+        assertEquals(null, lru.get("a")); // key:"a"にアクセスした場合value:nullを返すか確認
 
     }
 
     @Test
-    public void 更にdataCを追加しbにアクセスするとnullを返す() throws Exception {
-        Map<String, String> lru = new LRU<>(2);
+    public void dataAとdataBを追加したときにaにアクセスするとdataAを返す() throws Exception { // 上側の例を再現したテスト
+        Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
-        lru.put("a", "dataA");
-        lru.put("b", "dataB");
+        lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
+        lru.put("b", "dataB"); // (key:"b", value:"dataB")を挿入
 
-        assertEquals("dataA", lru.get("a"));
+        assertEquals("dataA", lru.get("a")); // key:"a"にアクセスした場合value:"dataA"を返すか確認
+
+    }
+
+    @Test
+    public void 更にdataCを追加しbにアクセスするとnullを返す() throws Exception { // 下側の例を再現したテスト
+        Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
+
+        lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
+        lru.put("b", "dataB"); // (key:"b", value:"dataB")を挿入
+
+        assertEquals("dataA", lru.get("a")); // key:"a"にアクセスした場合value:"dataA"を返すか確認
 
 
-        lru.put("c", "dataC");
+        lru.put("c", "dataC"); // (key:"c", value:"dataC")を挿入 - この時(key:"b", value:"dataB")はアクセスされていないため消えているはず
 
-        assertEquals(null, lru.get("b"));
+        assertEquals(null, lru.get("b")); // key:"b"にアクセスした場合value:nullを返すか確認
 
     }
 }

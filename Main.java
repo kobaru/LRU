@@ -11,7 +11,5 @@ public class Main {
         lru.put("c", "dataC");
 
         System.out.println(lru.get("a"));
-        System.out.println(lru.get("b"));
-        System.out.println(lru.get("c"));
     }
 }
