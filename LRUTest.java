@@ -62,4 +62,20 @@ public class LRUTest {
         assertEquals("dataA", lru.get("a"));
 
     }
+
+    @Test
+    public void 更にdataCを追加しbにアクセスするとnullを返す() throws Exception {
+        Map<String, String> lru = new LRU<>(2);
+
+        lru.put("a", "dataA");
+        lru.put("b", "dataB");
+
+        assertEquals("dataA", lru.get("a"));
+
+
+        lru.put("c", "dataC");
+
+        assertEquals(null, lru.get("b"));
+
+    }
 }
