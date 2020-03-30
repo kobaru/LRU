@@ -51,4 +51,15 @@ public class LRUTest {
         assertEquals(null, lru.get("a"));
 
     }
+
+    @Test
+    public void dataAとdataBを追加したときにaにアクセスするとdataAを返す() throws Exception {
+        Map<String, String> lru = new LRU<>(2);
+
+        lru.put("a", "dataA");
+        lru.put("b", "dataB");
+
+        assertEquals("dataA", lru.get("a"));
+
+    }
 }
