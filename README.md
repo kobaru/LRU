@@ -12,4 +12,4 @@
 - [x] lru.put("c", "dataC"); を行ったときに はじめに追加された "dataA" を削除する
 - [x] lru.get("a") をプリントした際に null と表示されるか確認する
 - [x] "dataA" と "dataB" をlru.put() で追加した際に lru.get("a") をプリントすると "dataA" を返す
-- [ ] 更に "dataC" を追加し, lru.get("b") をプリントすると null を返す
+- [x] 更に "dataC" を追加し, lru.get("b") をプリントすると null を返す
