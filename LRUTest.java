@@ -9,7 +9,7 @@ public class LRUTest {
 
     @Test
     public void dataAを表示() throws Exception { // 最初のテスト
-        Map<String, String> lru = new LRU<>(2);
+        Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
         lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
 
@@ -18,7 +18,7 @@ public class LRUTest {
     }
 
     @Test
-    public void dataBを表示() throws Exception {
+    public void dataBを表示() throws Exception { // 上のテストにデータを追加
         Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
         lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
@@ -29,7 +29,7 @@ public class LRUTest {
     }
 
     @Test
-    public void dataCを表示() throws Exception {
+    public void dataCを表示() throws Exception { // 更にデータを追加
         Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
         lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
@@ -41,7 +41,7 @@ public class LRUTest {
     }
 
     @Test
-    public void dataAがnullになっているか() throws Exception {
+    public void dataAがnullになっているか() throws Exception { // 上と同様
         Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
         lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
@@ -53,7 +53,7 @@ public class LRUTest {
     }
 
     @Test
-    public void dataAとdataBを追加したときにaにアクセスするとdataAを返す() throws Exception { // 上側の例を再現したテスト
+    public void dataAとdataBを追加したときにaにアクセスするとdataAを返す() throws Exception { // スライドの上側の例を再現したテスト
         Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
         lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
@@ -64,7 +64,7 @@ public class LRUTest {
     }
 
     @Test
-    public void 更にdataCを追加しbにアクセスするとnullを返す() throws Exception { // 下側の例を再現したテスト
+    public void 更にdataCを追加しbにアクセスするとnullを返す() throws Exception { // スライドの下側の例を再現したテスト
         Map<String, String> lru = new LRU<>(2); // 最大値のサイズに2を指定
 
         lru.put("a", "dataA"); // (key:"a", value:"dataA")を挿入
